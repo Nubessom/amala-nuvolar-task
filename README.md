@@ -7,8 +7,8 @@
 # Instalation:
 
     * Download Repository
-        git clone <REPOSITORY_URL>
-        cd <REPOSITORY_DIRECTORY>
+        git clone https://github.com/Nubessom/amala-nuvolar-task.git
+        cd amala-nuvolar-task
     * Create Scratch Org
         sfdx force:org:create -f config/project-scratch-def.json -s -a ExerciseAmalaDemoOrg --durationdays 7
     * Push Source to Scratch Org
