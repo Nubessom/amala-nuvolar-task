@@ -3,9 +3,9 @@
     <fullName>NU_Distance__c</fullName>
     <externalId>false</externalId>
     <label>Distance</label>
-    <precision>18</precision>
+    <precision>14</precision>
     <required>false</required>
-    <scale>4</scale>
+    <scale>0</scale>
     <trackTrending>false</trackTrending>
     <type>Number</type>
     <unique>false</unique>
