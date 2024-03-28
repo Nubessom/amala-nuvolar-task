@@ -1,0 +1,48 @@
+<template>
+    <lightning-card title="Create Flight">
+        <div class="slds-m-around_medium">
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </template>
+
+
+            <template lwc:if={recordId}>
+                <!-- Display flight details upon successful creation -->
+                <lightning-record-view-form record-id={recordId} object-api-name="NU_Flight__c">
+                    <div class="slds-box slds-theme_default slds-m-top_medium">
+                        <p><strong>Flight Created:</strong></p>
+                        <lightning-output-field field-name="Name"></lightning-output-field>
+                        <lightning-output-field field-name="NU_Origin__c"></lightning-output-field>
+                        <lightning-output-field field-name="NU_Destination__c"></lightning-output-field>
+                        <lightning-output-field field-name="NU_Distance__c"></lightning-output-field>
+                    </div>
+                </lightning-record-view-form>
+            </template>
+            <template lwc:else>
+                <lightning-layout horizontal-align="start" multiple-rows="true">
+                    <lightning-layout-item flexibility="auto" size="6" padding="around-small">
+                        <lightning-record-picker
+                            label="Origin IATA Code"
+                            placeholder="Search Origin..."
+                            object-api-name="NU_Airport__c"
+                            onchange={handleOriginSelect}
+                            matching-info={matchingInfo}
+                        ></lightning-record-picker>
+                    </lightning-layout-item>
+                    <lightning-layout-item flexibility="auto" size="6" padding="around-small">
+                        <lightning-record-picker
+                            label="Destination IATA Code"
+                            placeholder="Search Destination..."
+                            object-api-name="NU_Airport__c"
+                            onchange={handleDestinationSelect}
+                            matching-info={matchingInfo}
+                        ></lightning-record-picker>
+                    </lightning-layout-item>
+                    <lightning-layout-item flexibility="auto" size="12" padding="around-small">
+                        <lightning-button class="slds-float_right" variant="brand" label="Save" title="Save" onclick={saveFlight}></lightning-button>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </template>
+        </div>
+    </lightning-card>
+</template>
